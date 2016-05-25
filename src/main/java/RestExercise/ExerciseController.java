@@ -25,31 +25,14 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 @RestController
 @RequestMapping("/{exerciseId}")
 public class ExerciseController {
+	private final ExerciseRepository exerciseRepository = new ExerciseRepository();
+	
 	@RequestMapping(method = RequestMethod.GET)
 	Exercise getExercise(@PathVariable String exerciseId)
 	{
 		int id = Integer.parseInt(exerciseId);
-		ArrayList<Car> carList = Cars.getCarList();
-		switch (id)
-		{
-		case 1:
-			return new Exercise("Exercise 1", Cars.getExercise1StringList(carList));
-		case 2:
-			return new Exercise("Exercise 2", Cars.getExercise2StringList(carList));
-		case 3:
-			return new Exercise("Exercise 3", Cars.getExercise3StringList(carList));
-		case 4:
-			return new Exercise("Exercise 4", Cars.getExercise4StringList(carList));
-		default:
-			throw new ExerciseNotFoundException(id);
-		}
+		Exercise exercise = exerciseRepository.getExerciseById(id);
+		return exercise;
 	}
 }
 
-@ResponseStatus(HttpStatus.NOT_FOUND)
-class ExerciseNotFoundException extends RuntimeException {
-
-	public ExerciseNotFoundException(int id) {
-		super("Could not find exercise '" + id + "'.");
-	}
-}
