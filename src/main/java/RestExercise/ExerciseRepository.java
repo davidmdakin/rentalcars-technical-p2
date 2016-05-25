@@ -1,6 +1,7 @@
 package RestExercise;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -29,6 +30,11 @@ public class ExerciseRepository {
 		{
 			throw new ExerciseNotFoundException(id);
 		}
+	}
+	
+	public List<Exercise> getAllExercises()
+	{
+		return this.exercises;
 	}
 }
 

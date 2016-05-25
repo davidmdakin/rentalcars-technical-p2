@@ -23,11 +23,17 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
-@RequestMapping("/{exerciseId}")
+@RequestMapping("/")
 public class ExerciseController {
 	private final ExerciseRepository exerciseRepository = new ExerciseRepository();
 	
 	@RequestMapping(method = RequestMethod.GET)
+	Collection<Exercise> getExercises()
+	{
+		return exerciseRepository.getAllExercises();
+	}
+	
+	@RequestMapping(value = "/{exerciseId}", method = RequestMethod.GET)
 	Exercise getExercise(@PathVariable String exerciseId)
 	{
 		int id = Integer.parseInt(exerciseId);
