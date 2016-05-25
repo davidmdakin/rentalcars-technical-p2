@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="RestExerciseTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2016-05-25T00:09:22" hostname="Supplicae-PC" time="0.039">
+  <properties/>
+  <testcase name="testJsonFromWebpage" classname="RestExerciseTest" time="0.039"/>
+  <system-out><![CDATA[Hello World
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
