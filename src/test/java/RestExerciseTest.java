@@ -11,6 +11,8 @@ import com.google.gson.JsonSyntaxException;
 import RestExercise.Car;
 
 import static org.junit.Assert.*;
+
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -86,6 +88,23 @@ public class RestExerciseTest {
 		} catch (IOException e) {
 			e.printStackTrace();
 			fail("IOException: " + e.getMessage());
+		}
+    }
+    
+    @Test
+    public void testInvalidExercise()
+    {
+    	String url = "http://localhost:8080/5";
+    	try {
+			String jsonString = IOUtils.toString(new URL(url), (Charset) null);
+    	} catch (MalformedURLException e) {
+			e.printStackTrace();
+			fail("MalformedURLException: " + e.getMessage());
+    	} catch (FileNotFoundException e) {
+    		assertEquals(e.getMessage(), url);
+		} catch (IOException e) {
+			e.printStackTrace();
+			fail("MalformedURLException: " + e.getMessage());
 		}
     }
 }
