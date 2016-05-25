@@ -9,15 +9,15 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import RestExercise.Cars;
 
 public class ExerciseRepository {
-	private ArrayList<Exercise> exercises = new ArrayList<Exercise>();
+	private List<Exercise> exercises = new ArrayList<Exercise>();
 	
 	public ExerciseRepository()
 	{
 		ArrayList<Car> carList = Cars.getCarList();
-		exercises.add(new Exercise("Exercise 1", Cars.getExercise1StringList(carList)));
-		exercises.add(new Exercise("Exercise 2", Cars.getExercise2StringList(carList)));
-		exercises.add(new Exercise("Exercise 3", Cars.getExercise3StringList(carList)));
-		exercises.add(new Exercise("Exercise 4", Cars.getExercise4StringList(carList)));
+		exercises.add(new Exercise(1, "Exercise 1", Cars.getExercise1StringList(carList)));
+		exercises.add(new Exercise(2, "Exercise 2", Cars.getExercise2StringList(carList)));
+		exercises.add(new Exercise(3, "Exercise 3", Cars.getExercise3StringList(carList)));
+		exercises.add(new Exercise(4, "Exercise 4", Cars.getExercise4StringList(carList)));
 	}
 	
 	public Exercise getExerciseById(int id)
